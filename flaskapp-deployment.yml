@@ -20,14 +20,10 @@ spec:
           image: 'quay.io/lakshmi_kanala1/flask_api'
           ports:
             - containerPort: 5000
-          env:
-            - name: db_root_password
-              valueFrom:
-                secretKeyRef:
-                  name: flaskapi-secrets
-                  key: db_root_password
-            - name: db_name
-              value: flaskapi
+          envFrom:
+          - configMapRef:
+              name: mysql-config
+            
 
 ---
 apiVersion: v1
