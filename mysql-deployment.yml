@@ -20,7 +20,7 @@ spec:
         image: mysql
         imagePullPolicy: Never
         envFrom:
-        - ConfigMapRef:
+        - configMapRef:
             name: mysql-config
         ports:
         - containerPort: 3306
